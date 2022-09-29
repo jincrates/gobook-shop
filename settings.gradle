@@ -1,1 +1,5 @@
 rootProject.name = 'gobook'
+include 'user-service'
+include 'book-service'
+include 'admin-service'
+
