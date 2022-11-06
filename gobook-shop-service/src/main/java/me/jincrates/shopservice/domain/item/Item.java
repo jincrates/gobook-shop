@@ -1,2 +1,4 @@
-package me.jincrates.shopservice.domain;public class Item {
+package me.jincrates.shopservice.domain.item;
+
+public class Item {
 }
