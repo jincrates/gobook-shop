@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -14,7 +18,22 @@ public class ItemRepositoryTest {
 
     @Autowired
     ItemRepository itemRepository;
-    
+
+    public void createItemList() {
+        List<Item> itemList = new ArrayList<>();
+        IntStream.rangeClosed(1, 10).forEach(i -> {
+            Item item = Item.builder()
+                    .itemNm("테스트 상품" + i)
+                    .price(10000 * i)
+                    .itemDetail("테스트 상품 상세 설명" + i)
+                    .itemSellStatus(ItemSellStatus.SELL)
+                    .stockNumber(100 * i)
+                    .build();
+            itemList.add(item);
+        });
+        itemRepository.saveAll(itemList);
+    }
+
     @Test
     @DisplayName("상품 저장 테스트")
     void create_item() {
@@ -32,5 +51,21 @@ public class ItemRepositoryTest {
         //then
         assertNotNull(savedItem);
         assertEquals(item.getId(), savedItem.getId());
+    }
+
+    @Test
+    @DisplayName("상품명 조회 테스트")
+    void find_by_item_nm() {
+        //given
+        this.createItemList();
+
+        //when
+        List<Item> itemList = itemRepository.findByItemNm("테스트 상품1");
+
+        //then
+        for (Item item : itemList) {
+            System.out.println(item.toString());
+            assertEquals("테스트 상품1", item.getItemNm());
+        }
     }
 }
