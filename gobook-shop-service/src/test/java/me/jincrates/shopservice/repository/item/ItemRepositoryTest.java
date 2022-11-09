@@ -36,7 +36,7 @@ public class ItemRepositoryTest {
 
     @Test
     @DisplayName("상품 저장 테스트")
-    void create_item() {
+    void createItemTest() {
         //given
         Item item = Item.builder()
                 .itemNm("테스트 상품")
@@ -55,17 +55,70 @@ public class ItemRepositoryTest {
 
     @Test
     @DisplayName("상품명 조회 테스트")
-    void find_by_item_nm() {
+    void findByItemNmTest() {
         //given
+        String itemNm = "테스트 상품9";
         this.createItemList();
 
         //when
-        List<Item> itemList = itemRepository.findByItemNm("테스트 상품1");
+        List<Item> itemList = itemRepository.findByItemNm(itemNm);
 
         //then
         for (Item item : itemList) {
             System.out.println(item.toString());
-            assertEquals("테스트 상품1", item.getItemNm());
+            assertEquals(itemNm, item.getItemNm());
+        }
+    }
+
+    @Test
+    @DisplayName("상품명, 상품상세설명 or 테스트")
+    void findByItemNmOrItemDetailTest() {
+        //given
+        String itemNm = "테스트 상품9";
+        String itemDetail = "테스트 상품 상세 설명5";
+        this.createItemList();
+
+        //when
+        List<Item> itemList = itemRepository.findByItemNmOrItemDetail(itemNm, itemDetail);
+
+        //then
+        assertEquals(2, itemList.size());
+        for (Item item : itemList) {
+            System.out.println(item.toString());
+        }
+    }
+
+    @Test
+    @DisplayName("가격 LessThan 테스트")
+    void findByPriceLessThanTest() {
+        //given
+        Integer price = 50000;
+        this.createItemList();
+
+        //when
+        List<Item> itemList = itemRepository.findByPriceLessThan(price);
+
+        //then
+        assertEquals(4, itemList.size());
+        for (Item item : itemList) {
+            System.out.println(item.toString());
+        }
+    }
+
+    @Test
+    @DisplayName("가격 LessThan 테스트")
+    void findByPriceLessThanOrderByPriceDescTest() {
+        //given
+        Integer price = 50000;
+        this.createItemList();
+
+        //when
+        List<Item> itemList = itemRepository.findByPriceLessThanOrderByPriceDesc(price);
+
+        //then
+        assertEquals(4, itemList.size());
+        for (Item item : itemList) {
+            System.out.println(item.toString());
         }
     }
 }
