@@ -1,7 +1,8 @@
 package me.jincrates.shopservice.repository.item;
 
-import me.jincrates.shopservice.domain.enumtype.ItemSellStatus;
-import me.jincrates.shopservice.domain.item.Item;
+import me.jincrates.shopservice.module.item.domain.ItemSellStatus;
+import me.jincrates.shopservice.module.item.domain.Item;
+import me.jincrates.shopservice.module.item.repository.ItemRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

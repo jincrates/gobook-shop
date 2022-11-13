@@ -1,4 +1,4 @@
-package me.jincrates.shopservice.config;
+package me.jincrates.shopservice.infra.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;

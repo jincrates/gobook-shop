@@ -1,4 +1,4 @@
-package me.jincrates.shopservice.service.item;
+package me.jincrates.shopservice.module.item.service.item;
 
 import org.springframework.stereotype.Service;
 

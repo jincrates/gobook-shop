@@ -1,11 +1,10 @@
-package me.jincrates.shopservice.domain.item;
+package me.jincrates.shopservice.module.item.domain;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import me.jincrates.shopservice.domain.BaseTimeEntity;
-import me.jincrates.shopservice.domain.enumtype.ItemSellStatus;
+import me.jincrates.shopservice.infra.common.entity.BaseTimeEntity;
 
 import javax.persistence.*;
 

@@ -1,8 +1,7 @@
-package me.jincrates.shopservice.repository.item;
+package me.jincrates.shopservice.module.item.repository;
 
-import me.jincrates.shopservice.domain.item.Item;
+import me.jincrates.shopservice.module.item.domain.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package me.jincrates.shopservice.exception;
+package me.jincrates.shopservice.infra.exception;
 
 public class ServerException extends RuntimeException {
     private Integer code;

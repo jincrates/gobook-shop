@@ -1,4 +1,4 @@
-package me.jincrates.shopservice.domain;
+package me.jincrates.shopservice.infra.common.entity;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;

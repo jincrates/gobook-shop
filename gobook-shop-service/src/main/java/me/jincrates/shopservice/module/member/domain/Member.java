@@ -1,10 +1,9 @@
-package me.jincrates.shopservice.domain.member;
+package me.jincrates.shopservice.module.member.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import me.jincrates.shopservice.domain.BaseTimeEntity;
-import me.jincrates.shopservice.domain.enumtype.MemberRole;
+import me.jincrates.shopservice.infra.common.entity.BaseTimeEntity;
 
 import javax.persistence.*;
 
