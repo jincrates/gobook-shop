@@ -16,7 +16,7 @@ import java.util.List;
 public class Order extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
 
@@ -53,7 +53,7 @@ public class Order extends BaseEntity {
                 .orderStatus(OrderStatus.ORDER)
                 .orderDate(LocalDateTime.now())
                 .build();
-        
+
         for (OrderItem orderItem : orderItemList) {
             order.addOrderItem(orderItem);
         }

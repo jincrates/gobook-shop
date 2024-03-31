@@ -18,7 +18,7 @@ import javax.persistence.*;
 public class Item extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
     private Long id; //상품 코드
 
@@ -31,8 +31,7 @@ public class Item extends BaseEntity {
     @Column(nullable = false)
     private int stockNumber;  //재고수량
 
-    @Lob
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     private String itemDetail;  //상품 상세설명
 
     @Enumerated(EnumType.STRING)
