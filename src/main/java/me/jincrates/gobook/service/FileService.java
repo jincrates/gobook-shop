@@ -14,7 +14,7 @@ public class FileService {
     public String uploadFile(String uploadPath, String originalFileName, byte[] fileData) throws Exception {
         UUID uuid = UUID.randomUUID();
         String extension = originalFileName.substring(originalFileName.lastIndexOf("."));
-        String savedFileName = uuid.toString() + extension;
+        String savedFileName = uuid + extension;
         String fileUploadFullUrl = uploadPath + "/" + savedFileName;
 
         FileOutputStream fos = new FileOutputStream(fileUploadFullUrl);
